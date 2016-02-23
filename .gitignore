@@ -1,0 +1,13 @@
+*.orig
+.*.sw?
+.settings
+*.py[cod]
+*TokenTypes.txt
+antlraterm.py
+machine/pentium/att_lexer.py
+machine/pentium/att_parser.py
+transf/parse/parser.py
+examples/*.s
+examples/*.asm
+examples/*.aterm
+doc

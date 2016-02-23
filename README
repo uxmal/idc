@@ -1,0 +1,41 @@
+Interactive Decompiler
+======================
+
+
+Requirements
+~~~~~~~~~~~~
+
+ * Python 2.4 ( http://www.python.org/ )
+
+ * pyparsing ( http://pyparsing.wikispaces.com/ )
+
+ * pydot ( http://code.google.com/p/pydot )
+
+ * pygtk 2.10 ( http://www.pygtk.org/ )
+
+ * graphviz ( http://graphviz.org/ )
+
+   NOTE: dot should be on your path
+
+
+Running
+~~~~~~~
+
+ * To see the assembly translation do:
+
+     python translate.py examples/ex*.s
+
+ * To play around with the GUI do:
+
+     python idc.py
+
+
+Building
+~~~~~~~~
+
+ * If the source code is not modified, then no building is necessary.
+
+ * If the source of the ANTLR grammar is modified, then install ANTLR 2
+   ( http://www.antlr2.org/ ) and run
+
+     python setup.py build

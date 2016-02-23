@@ -1,0 +1,24 @@
+To-Do list:
+
+* Finish the IA32 instruction set.
+
+* Parse Intel Assembly syntax.
+
+* Make paths variables.
+
+* ATerm pretty-print.
+
+* Better variable scoping (by annotating the transformation AST nodes with the
+  inner variables).
+
+* Distinguish ID atoms and IDs with dots at the grammar level.
+
+* Transformation language optimization
+
+* Add a "dispatcher" transformation which introspects the current namespace.
+
+* More exhaustive testing.
+
+* Make the test suite easier to use.
+
+* Extend epydoc to return documentation of transformations.

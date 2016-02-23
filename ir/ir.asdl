@@ -1,0 +1,79 @@
+-- ir.asdl
+--
+-- Definition of the intermediate representation in the Abstract Syntax
+-- Description Language (ASDL). Mostly for reference at the moment.
+--
+-- NOTE: ASDL's five builtin types are identifier, int, string, object, bool
+
+module
+	= Module(stmt*)
+
+stmt
+	= Asm(string opcode, expr* operands)
+	| Assign(type, expr? dest, expr src)
+	| Label(string name)
+	| GoTo(expr addr)
+	| Break
+	| Continue
+	| Block(stmt*)
+	| If(expr cond, stmt, stmt)
+	| While(expr cond, stmt)
+	| DoWhile(expr cond, stmt)
+	| Ret(type, expr? value)
+	| Var(type, string name, expr? value)
+	| Function(type, string name, arg*, stmt* body)
+	| NoStmt
+
+arg
+	= Arg(type, name)
+
+expr
+	= Lit(type, object value)
+	| Sym(string name)
+	| Cast(type, expr)
+	| Unary(unOp, expr)
+	| Binary(binOp, expr, expr)
+	| Cond(expr cond, expr, expr)
+	| Call(expr func, expr* params)
+	| Addr(expr)
+	| Ref(expr)
+
+unOp
+	= Not(type)
+	| Neg(type)
+
+binOp
+	= And(type)
+	| Or(type)
+	| Xor(type)
+	| LShift(type)
+	| RShift(type)
+	| Plus(type)
+	| Minus(type)
+	| Mult(type)
+	| Div(type)
+	| Mod(type)
+	| Eq(type)
+	| NotEq(type)
+	| Lt(type)
+	| LtEq(type)
+	| Gt(type)
+	| GtEq(type)
+
+type
+	= Void
+	| Bool
+	| Int(int size, sign)
+	| Float(int size)
+	| Char(int size)
+	| Pointer(type)
+	| Array(type)
+	| Compound(type*)
+	| Union(type*)
+	| FuncPointer(type, type*)
+	| Blob(size)
+
+sign
+	= Signed
+	| Unsigned
+	| NoSign
